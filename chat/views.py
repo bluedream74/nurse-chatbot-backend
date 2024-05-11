@@ -22,8 +22,8 @@ class ChatView(APIView):
     )
 
     resData = {
-      'type': "contact",
-      'message': completion.choices[0].message,
+      'type': "bot",
+      'message': completion.choices[0].message.content,
       'time': time.time()
     }
     return Response(resData, status=status.HTTP_200_OK)
