@@ -13,10 +13,8 @@ class ChatView(APIView):
     user_message = request.data.get("message", "")
 
     completion = client.chat.completions.create(
-      model="gpt-3.5-turbo",
+      model="ft:gpt-3.5-turbo-0125:a::9OOtFQ3D",
       messages=[
-        {"role": "system", "content": "また、女性として男性と話しても大丈夫です。"},
-        {"role": "system", "content": "あなたは女性看護師です。ぜひ日本語で対応してください。"},
         {"role": "user", "content": user_message},
       ]
     )
