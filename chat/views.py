@@ -4,7 +4,10 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny
 from openai import OpenAI
 import time
+import random
 client = OpenAI()
+
+emoji_str = ["❣️", "❤️", "🤐", "💗", '💜', "😍", "🥰", "🧑", "💉", "🛀", '🏨']
 
 class ChatView(APIView):
   permission_classes = [AllowAny]
@@ -19,9 +22,11 @@ class ChatView(APIView):
       ]
     )
 
+    randomIndex = random.randint(0, 11)
+    print(randomIndex)
     resData = {
       'type': "bot",
-      'message': completion.choices[0].message.content,
+      'message': completion.choices[0].message.content + emoji_str[randomIndex],
       'time': time.time()
     }
     return Response(resData, status=status.HTTP_200_OK)
