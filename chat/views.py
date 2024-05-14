@@ -16,7 +16,7 @@ class ChatView(APIView):
     user_message = request.data.get("message", "")
 
     completion = client.chat.completions.create(
-      model="ft:gpt-3.5-turbo-0125:a::9OOtFQ3D",
+      model="ft:gpt-3.5-turbo-0125:a::9Olj0N4f",
       messages=[
         {"role": "user", "content": user_message},
       ]
